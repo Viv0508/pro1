@@ -1,0 +1,22 @@
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "7000:7000"
+    # volumes:
+    #   - ./Backend:/app
+    environment:
+      - FLASK_ENV=development
+
+  frontend:
+    build:
+      context: ./Frontened/weed-detection-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    # volumes:
+    #   - ./Frontened/weed-detection-app:/app
+    environment:
+      - NODE_ENV=development
